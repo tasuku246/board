@@ -1,2 +1,10 @@
 <h1> index board threads </h1>
 
+<% @board_threads.each do |board_thread|  %>
+    <div>
+      <%=
+          link_to board_thread.title , board_thread
+      %>
+      created_at <%= board_thread.created_at.to_s %>
+    </div>
+<% end  %>
