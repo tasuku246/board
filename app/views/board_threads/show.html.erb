@@ -1,4 +1,7 @@
-<h1> show board threads </h1>
-    <div>
-      <%= @board_thread.title %>
-    </div>
+<h1><%= @board_thread.title %></h1>
+<div>
+  <% @board_thread.posts.each do |post| %>
+      <p><%= post.post_user_name %> posted</p>
+      <p><%= post.text %></p>
+      </div>
+  <% end  %>

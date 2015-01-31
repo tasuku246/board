@@ -11,12 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150124142607) do
+ActiveRecord::Schema.define(version: 20150125094900) do
 
   create_table "board_threads", force: true do |t|
     t.string   "title",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "posts", force: true do |t|
+    t.integer  "board_thread_id",                     null: false
+    t.string   "text",                                null: false
+    t.string   "post_user_name",  default: "no_name", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "posts", ["board_thread_id"], name: "posts_board_thread_id_fk", using: :btree
+
+  add_foreign_key "posts", "board_threads", name: "posts_board_thread_id_fk"
 
 end
