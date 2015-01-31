@@ -1,7 +1,9 @@
-<h1><%= @board_thread.title %></h1>
-<div>
-  <% @board_thread.posts.each do |post| %>
-      <p><%= post.post_user_name %> posted</p>
+<h1><%= @board_thread.title + ' 投稿数(' + @board_thread.posts.count.to_s + ')' %></h1>
+<div id="main-body">
+<% @board_thread.posts.each do |post| %>
+    <li class="post">
+      <div class="comment-header"><%= (link_to post.post_user_name, '') + post.created_at.to_s %></div>
       <p><%= post.text %></p>
-      </div>
+    </li>
   <% end  %>
+</div>

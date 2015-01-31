@@ -1,0 +1,27 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #DADADA;
+}
+
+header {
+  background-color: gray;
+  padding: 10px;
+  span.logo-mark {
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 20px;
+  }
+}
+
+div#main-body {
+  margin: 5px;
+  padding: 5px;
+  border: solid 2px green;
+}
+
+li.post {
+  border-bottom: solid 1px #2E2F30;
+  list-style-type: none;
+}

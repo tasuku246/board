@@ -1,17 +1,11 @@
 5.times do |n|
     b = BoardThread.create!(
-        title: 'thread' + n.to_s
+        title: "thread#{n}"
     )
-
-    b.posts.create!(
-        text: "post hoge1",
-        post_user_name: 'user hoge'
-    )
-    b.posts.create!(
-        text: "post hoge2",
-        post_user_name: 'user hoge'
-    )
-
-
-
+    10.times do |m|
+        b.posts.create!(
+            text: "post hoge#{m}",
+            post_user_name: "user#{m}"
+        )
+    end
 end
