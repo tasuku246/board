@@ -18,10 +18,18 @@ header {
 div#main-body {
   margin: 5px;
   padding: 5px;
-  border: solid 2px green;
+  border: solid 2px #2E2F30;
+  border-radius: 20px;
 }
 
 li.post {
   border-bottom: solid 1px #2E2F30;
   list-style-type: none;
+}
+
+div#main-body {
+  div#threads-list {
+    border-bottom: solid 1px #2E2F30;
+    padding: 10px;
+  }
 }

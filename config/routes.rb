@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   root 'board_threads#index'
-  resources :board_threads
+  resources :board_threads do
+    resources :posts
+  end
 
 end

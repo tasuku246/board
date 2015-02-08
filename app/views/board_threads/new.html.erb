@@ -1,0 +1,12 @@
+<h1> スレッド新規作成 </h1>
+
+<div id="generic-form">
+  <%= form_for @board_thread  do |f| %>
+  <%= render 'form', f: f %>
+      <div class="buttons">
+        <%= f.submit '作成' %>
+      </div>
+  <% end %>
+</div>
+
+<%= link_to 'スレッド一覧に戻る', :board_threads %>

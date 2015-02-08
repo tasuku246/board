@@ -1,10 +1,12 @@
 <h1> index board threads </h1>
-
-<% @board_threads.each do |board_thread|  %>
-    <div>
-      <%=
-          link_to board_thread.title , board_thread
-      %>
-      created_at <%= board_thread.created_at.to_s %>
-    </div>
-<% end  %>
+<div id="main-body">
+  <% @board_threads.each do |board_thread|  %>
+      <div id="threads-list">
+        <%=
+            link_to board_thread.title , board_thread
+        %>
+        created_at <%= board_thread.created_at.to_s %>
+      </div>
+  <% end  %>
+  <%= link_to 'スレッド新規作成', :new_board_thread %>
+</div>
