@@ -3,14 +3,6 @@ class BoardThreadsController < ApplicationController
     @board_threads = BoardThread.all
   end
 
-  def show
-    @board_thread = BoardThread.find(params[:id])
-    @posts = @board_thread.posts
-    @post = Post.new
-    @form = PostForm.new
-    render action: 'show'
-  end
-
   def create
     @board_thread = BoardThread.new(board_thread_params)
     if @board_thread.save
