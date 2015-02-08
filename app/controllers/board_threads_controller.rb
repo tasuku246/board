@@ -12,14 +12,20 @@ class BoardThreadsController < ApplicationController
   end
 
   def create
-    b = BoardThread.find(params[:id])
-
-    @post = b.posts.new(params[:post_form])
-    @post.save!
-    render action: 'show'
+    @board_thread = BoardThread.new(board_thread_params)
+    if @board_thread.save
+      redirect_to :board_threads
+    else
+      render action: 'new'
+    end
   end
 
   def new
     @board_thread = BoardThread.new
+  end
+
+  private
+  def board_thread_params
+    params.require(:board_thread).permit(:title)
   end
 end
