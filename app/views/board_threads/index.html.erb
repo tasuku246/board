@@ -3,7 +3,7 @@
   <% @board_threads.each do |board_thread|  %>
       <div id="threads-list">
         <%=
-            link_to board_thread.title , board_thread
+            link_to board_thread.title , [board_thread, :posts]
         %>
         created_at <%= board_thread.created_at.to_s %>
       </div>
