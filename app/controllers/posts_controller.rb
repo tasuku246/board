@@ -13,6 +13,13 @@ class PostsController < ApplicationController
     redirect_to :board_thread_posts
   end
 
+  def destroy
+    @board_thread = BoardThread.find(params[:board_thread_id])
+    @post = @board_thread.posts.find(params[:id])
+    @post.destroy!
+    redirect_to :board_thread_posts
+  end
+
 
   private
   def post_params
