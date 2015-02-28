@@ -5,6 +5,7 @@ class PostsController < ApplicationController
     @posts = @board_thread.posts
     @post = Post.new
     @form = PostForm.new
+    @posts = @posts.page(params[:page])
   end
 
   def create

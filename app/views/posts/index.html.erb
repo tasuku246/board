@@ -1,7 +1,7 @@
 <h1><%= @board_thread.title + ' 投稿数(' + @board_thread.posts.count.to_s + ')' %></h1>
 <div id="main-body">
   <div id="posts-area">
-    <% @board_thread.posts.each do |post| %>
+    <% @posts.each do |post| %>
         <li class="post">
           <div class="comment-header"><%= (link_to post.post_user_name, '') + post.created_at.to_s %>　| <%= link_to '削除', [@board_thread, post], method: :delete ,
           data: {confirm: "削除してもいい？"} %> </div>
@@ -9,6 +9,8 @@
         </li>
     <% end  %>
   </div>
+
+  <%= paginate @posts %>
 
   <div id="post-form">
     <%= form_for ([@board_thread, @post]) do |f| %>
