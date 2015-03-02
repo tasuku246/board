@@ -26,6 +26,6 @@ class BoardThreadsController < ApplicationController
 
   private
   def board_thread_params
-    params.require(:board_thread).permit(:title)
+    params.require(:board_thread).permit(:title, :category)
   end
 end
