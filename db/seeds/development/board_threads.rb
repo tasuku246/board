@@ -1,6 +1,10 @@
+c = ['policitcs','economy', 'IT', 'crime', 'whather']
+
+
 5.times do |n|
     b = BoardThread.create!(
-        title: "thread#{n}"
+        title: "thread#{n}",
+        category: c[n]
     )
     50.times do |m|
         b.posts.create!(

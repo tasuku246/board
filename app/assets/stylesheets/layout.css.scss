@@ -8,10 +8,12 @@ html, body {
 header {
   background-color: gray;
   padding: 10px;
-  span.logo-mark {
+  a.logo-mark {
     font-weight: bold;
     font-family: Arial;
     font-size: 20px;
+    color: inherit;
+    text-decoration: none;
   }
 }
 
@@ -20,6 +22,12 @@ div#main-body {
   padding: 5px;
   border: solid 2px #2E2F30;
   border-radius: 20px;
+  div.threads-list {
+    div.category {
+      float: right;
+    }
+
+  }
 }
 
 li.post {
@@ -28,7 +36,7 @@ li.post {
 }
 
 div#main-body {
-  div#threads-list {
+  div.threads-list {
     border-bottom: solid 1px #2E2F30;
     padding: 10px;
   }

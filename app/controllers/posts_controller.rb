@@ -3,9 +3,10 @@ class PostsController < ApplicationController
   def index
     @board_thread = BoardThread.find(params[:board_thread_id])
     @posts = @board_thread.posts
+    @posts = @posts.page(params[:page])
     @post = Post.new
     @form = PostForm.new
-    @posts = @posts.page(params[:page])
+
   end
 
   def create
