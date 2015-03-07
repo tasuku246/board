@@ -6,7 +6,11 @@ class PostsController < ApplicationController
     @posts = @posts.page(params[:page])
     @post = Post.new
     @form = PostForm.new
+  end
 
+  def show
+    @board_thread = BoardThread.find(params[:board_thread_id])
+    @post = Post.find(params[:id])
   end
 
   def create

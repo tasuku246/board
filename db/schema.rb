@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150305151711) do
+ActiveRecord::Schema.define(version: 20150307092257) do
 
   create_table "board_threads", force: true do |t|
     t.string   "title",      null: false
@@ -26,9 +26,11 @@ ActiveRecord::Schema.define(version: 20150305151711) do
     t.string   "post_user_name",  default: "no_name", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "posts", ["board_thread_id"], name: "posts_board_thread_id_fk", using: :btree
+  add_index "posts", ["user_id"], name: "posts_user_id_fk", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -49,5 +51,6 @@ ActiveRecord::Schema.define(version: 20150305151711) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "posts", "board_threads", name: "posts_board_thread_id_fk"
+  add_foreign_key "posts", "users", name: "posts_user_id_fk"
 
 end
