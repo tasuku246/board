@@ -1,6 +1,9 @@
 <h1><%= @board_thread.title + ' 投稿数(' + @board_thread.posts.count.to_s + ')' %></h1>
 <div id="main-body">
   <div id="posts-area">
+
+    render _posts
+
     <% @posts.each do |post| %>
         <li class="post">
           <div class="comment-header"><%= link_to post.id, [@board_thread, post]  %> <%= post.user.user_name  + post.created_at.in_time_zone('Tokyo').strftime('%Y-%m-%d').to_s %>　| <%= link_to '削除', [@board_thread, post], method: :delete ,
@@ -8,6 +11,8 @@
           <p><%= mention_anchor(post.text,@board_thread.id).html_safe %></p>
         </li>
     <% end  %>
+
+
   </div>
 
   <%= paginate @posts %>

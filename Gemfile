@@ -40,9 +40,6 @@ gem 'spring',        group: :development
 
 
 gem 'foreigner', '~> 1.6.1'
-
 gem 'kaminari', '~> 0.15.1'
-
 gem 'devise', '~>3.2.4'
-
 gem 'foreigner', '~>1.6.1'
