@@ -7,7 +7,6 @@ class PostsController < ApplicationController
     @board_thread = BoardThread.find(params[:board_thread_id])
     @posts = @board_thread.posts
     @posts = @posts.page(params[:page])
-    @user = current_user
     @post = Post.new
     @form = PostForm.new
   end
