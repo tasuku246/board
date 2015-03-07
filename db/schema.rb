@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20150305151711) do
     t.string   "title",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "category"
+    t.string   "category",   null: false
   end
 
   create_table "posts", force: true do |t|

@@ -28,4 +28,5 @@ class PostsController < ApplicationController
     params.require(:post).permit(:post_user_name, :text)
   end
 
+
 end
