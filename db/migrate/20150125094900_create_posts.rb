@@ -3,13 +3,11 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.references :board_thread, null: false
       t.string :text, null: false
-      t.string :post_user_name , null: false, default: 'no_name'
-
-
+      t.references :user, null: false
       t.timestamps
     end
 
     add_foreign_key :posts, :board_threads
-
+    #add_foreign_key :posts, :users
   end
 end

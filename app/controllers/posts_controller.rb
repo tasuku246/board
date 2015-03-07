@@ -1,9 +1,13 @@
 class PostsController < ApplicationController
 
+  before_action :authenticate_user!, :only => [:create]
+
+
   def index
     @board_thread = BoardThread.find(params[:board_thread_id])
     @posts = @board_thread.posts
     @posts = @posts.page(params[:page])
+    @user = current_user
     @post = Post.new
     @form = PostForm.new
   end
@@ -15,7 +19,9 @@ class PostsController < ApplicationController
 
   def create
     @board_thread = BoardThread.find(params[:board_thread_id])
-    @post = @board_thread.posts.create!(post_params)
+    @post = @board_thread.posts.new(post_params)
+    @post.user_id = current_user.id
+    @post.save
     redirect_to :board_thread_posts
   end
 

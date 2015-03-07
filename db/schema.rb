@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150307092257) do
+ActiveRecord::Schema.define(version: 20150307111153) do
 
   create_table "board_threads", force: true do |t|
     t.string   "title",      null: false
@@ -21,24 +21,24 @@ ActiveRecord::Schema.define(version: 20150307092257) do
   end
 
   create_table "posts", force: true do |t|
-    t.integer  "board_thread_id",                     null: false
-    t.string   "text",                                null: false
-    t.string   "post_user_name",  default: "no_name", null: false
+    t.integer  "board_thread_id", null: false
+    t.string   "text",            null: false
+    t.integer  "user_id",         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   add_index "posts", ["board_thread_id"], name: "posts_board_thread_id_fk", using: :btree
   add_index "posts", ["user_id"], name: "posts_user_id_fk", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",        null: false
+    t.string   "encrypted_password",     default: "",        null: false
+    t.string   "user_name",              default: "no_name", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,         null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"

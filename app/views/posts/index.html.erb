@@ -3,7 +3,7 @@
   <div id="posts-area">
     <% @posts.each do |post| %>
         <li class="post">
-          <div class="comment-header"><%= link_to post.id, [@board_thread, post]  %> <%= (link_to post.post_user_name, '') + post.created_at.in_time_zone('Tokyo').strftime('%Y-%m-%d').to_s %>　| <%= link_to '削除', [@board_thread, post], method: :delete ,
+          <div class="comment-header"><%= link_to post.id, [@board_thread, post]  %> <%= (link_to 'hoge', '') + post.created_at.in_time_zone('Tokyo').strftime('%Y-%m-%d').to_s %>　| <%= link_to '削除', [@board_thread, post], method: :delete ,
           data: {confirm: "削除してもいい？"} %> </div>
           <p><%= mention_anchor(post.text,@board_thread.id).html_safe %></p>
         </li>
@@ -14,10 +14,6 @@
 
   <div id="post-form">
     <%= form_for ([@board_thread, @post]) do |f| %>
-        <div>
-          <%= f.label :post_user_name, '投稿者名' %>
-          <%= f.text_field :post_user_name %>
-        </div>
         <div>
           <%= f.label :text, '投稿内容' %>
           <%= f.text_field :text, size:120 %>
