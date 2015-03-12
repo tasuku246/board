@@ -18,17 +18,21 @@ class PostsController < ApplicationController
 
   def create
     @board_thread = BoardThread.find(params[:board_thread_id])
+    last_page = @board_thread.posts.page(params[:page]).total_pages
     @post = @board_thread.posts.new(post_params)
     @post.user_id = current_user.id
     @post.save
-    redirect_to :board_thread_posts
+    #ページネーションの最後のページにリダイレクトしてる
+    redirect_to board_thread_posts_path(:page => last_page)
+
   end
 
   def destroy
     @board_thread = BoardThread.find(params[:board_thread_id])
     @post = @board_thread.posts.find(params[:id])
     @post.destroy!
-    redirect_to :board_thread_posts
+    last_page = @board_thread.posts.page(params[:page]).total_pages
+    redirect_to board_thread_posts_path(:page => last_page)
   end
 
 
