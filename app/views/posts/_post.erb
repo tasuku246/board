@@ -1,8 +1,0 @@
-
-<li class="post">
-  <div class="comment-header"><%= link_to post.id, [@board_thread, post]  %> <%= post.user.user_name  + post.created_at.in_time_zone('Tokyo').strftime('%Y-%m-%d').to_s %>　| <%= link_to '削除', [@board_thread, post], method: :delete ,
-                                                                                                                                                                                         data: {confirm: "削除してもいい？"} %> </div>
-  <p><%= mention_anchor(post.text,@board_thread.id).html_safe %></p>
-</li>
-
-
