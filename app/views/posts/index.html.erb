@@ -1,4 +1,4 @@
-<h1><%= @board_thread.title + ' 投稿数(' + @board_thread.posts.count.to_s + ')' %></h1>
+<h1><%= make_title @board_thread %></h1>
 <div id="main-body">
   <%= render @posts %>
   <%= paginate @posts %>
