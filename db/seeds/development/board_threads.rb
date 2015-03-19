@@ -1,8 +1,8 @@
-c = ['policitcs','economy', 'IT', 'crime', 'whather']
+c = ['politics','economy', 'IT', 'crime', 'whather','politics']
 
 user = User.create! :email => 'example@example.com', :password => 'password', user_name: 'no_name'
 
-5.times do |n|
+c.length.times do |n|
     b = BoardThread.create!(
         title: "thread#{n}",
         category: c[n]

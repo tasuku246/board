@@ -1,7 +1,7 @@
 class BoardThreadsController < ApplicationController
   def index
     @board_threads = BoardThread.all
-
+    @category_uniq_board_thread = BoardThread.select(:category).uniq
   end
 
   def create
