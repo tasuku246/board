@@ -1,8 +1,6 @@
 <h1><%= @board_thread.title + ' 投稿数(' + @board_thread.posts.count.to_s + ')' %></h1>
 <div id="main-body">
-  <div id="posts-area">
-    <%= render @post %>
-  </div>
-  <%= link_to 'スレッド一覧', :board_threads %>
+  <%= render @post %>
+  <%= link_to 'スレッド一覧', [@board_thread, :posts]  %>
 </div>
 
