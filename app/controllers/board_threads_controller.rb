@@ -1,7 +1,7 @@
 class BoardThreadsController < ApplicationController
   def index
     @board_threads = BoardThread.all
-    @categories = BoardThread.all.
+
   end
 
   def create

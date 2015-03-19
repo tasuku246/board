@@ -3,7 +3,7 @@
   <% @board_threads.each do |board_thread|  %>
       <div class="threads-list">
         <%= link_to board_thread.title , [board_thread, :posts] %>
-        <div class="category"><%= board_thread.category %></div>
+        <div class="category"><%= link_to board_thread.category, [board_thread, :category] %></div>
          <%= board_thread.created_at.in_time_zone('Tokyo').strftime('%Y-%m-%d').to_s %>　| <%= link_to '削除', board_thread, method: :delete , data: { confirm: "削除してもよろしい？"}%>
       </div>
   <% end  %>
